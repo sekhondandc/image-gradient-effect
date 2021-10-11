@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #292929;
+    font-family: 'Open Sans', sans-serif;
+}
+.image-box{
+    width: 300px;
+    height: 200px;
+    position: relative;
+    background: url(placeholder.png);
+    background-size: cover;
+}
+
+.image-box.gradient::before{
+    content: '';
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    z-index: -1;
+    background: linear-gradient(45deg,
+    #fb0094, #0000ff,
+    #00ff00, #ffff00,
+    #ff0000,#fb0094,
+    #0000ff, #00ff00,
+    #ffff00,#ff0000);
+    background-size: 1000%;
+    filter:blur(5px);
+    animation: animate_gradient 20s ease-in-out infinite;
+}
+
+
+.image-box.gradientSides::before,
+.image-box.gradientSides::after{
+    content: '';
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(45deg,
+    #fb0094, #0000ff,
+    #00ff00, #ffff00,
+    #ff0000,#fb0094,
+    #0000ff, #00ff00,
+    #ffff00,#ff0000);
+    background-size: 1000%;
+    filter:blur(5px);
+    animation: animate_gradient 20s ease-in-out infinite;
+}
+.image-box.gradientSides::before{
+    top: -5px;
+}
+.image-box.gradientSides::after{
+    bottom: -5px;
+}
+
+
+.image-box.gradientCorners::before,
+.image-box.gradientCorners::after{
+    content: '';
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    z-index: -1;
+    background: linear-gradient(45deg,
+    #fb0094, #0000ff,
+    #00ff00, #ffff00,
+    #ff0000,#fb0094,
+    #0000ff, #00ff00,
+    #ffff00,#ff0000);
+    background-size: 1000%;
+    filter:blur(5px);
+    animation: animate_gradient 20s ease-in-out infinite;
+}
+.image-box.gradientCorners::before{
+    top: -10px;
+    left: -10px;
+}
+.image-box.gradientCorners::after{
+    bottom: -10px;
+    right: -10px;
+}
+
+.image-box.gradientBorder{
+    background-clip: content-box;
+    padding: 10px;
+    outline: 1px solid #ffffff;
+}
+.image-box.gradientBorder::before{
+    content: '';
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    z-index: -1;
+    background: linear-gradient(45deg,
+    #fb0094, #0000ff,
+    #00ff00, #ffff00,
+    #ff0000,#fb0094,
+    #0000ff, #00ff00,
+    #ffff00,#ff0000);
+    background-size: 1000%;
+    filter:blur(5px);
+    animation: animate_gradient 20s ease-in-out infinite;
+}
+
+@keyframes animate_gradient {
+    0%{
+        background-position: 0;
+    }
+    50%{
+        background-position: 500%;
+    }
+    100%{
+        background-position: 0;
+    }
+}
